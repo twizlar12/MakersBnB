@@ -1,1 +1,1 @@
-CREATE TABLE spaces(id SERIAL PRIMARY KEY, Property Name VARCHAR(60), Description VARCHAR(1000), Space Type VARCHAR(60), Guests INT,  Bedrooms INT, Beds INT, Bathrooms INT, Amenities VARCHAR(60));
+CREATE TABLE spaces(id SERIAL PRIMARY KEY, property_name VARCHAR(60), description VARCHAR(1000), space_type VARCHAR(60), guests INT,  bedrooms INT, beds INT, bathrooms INT, amenities VARCHAR(60));

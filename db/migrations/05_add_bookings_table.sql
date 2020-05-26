@@ -1,1 +1,1 @@
-CREATE TABLE bookings(id SERIAL PRIMARY KEY, Property Name VARCHAR(60), Start Date DATE, End Date DATE);
+CREATE TABLE bookings(id SERIAL PRIMARY KEY, property_name VARCHAR(60), start_date DATE, end_date DATE);
