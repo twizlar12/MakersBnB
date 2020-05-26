@@ -1,0 +1,1 @@
+CREATE TABLE bookings(id SERIAL PRIMARY KEY, Property Name VARCHAR(60), Start Date DATE, End Date DATE);
