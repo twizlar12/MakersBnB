@@ -55,7 +55,10 @@ Can create user that signs in (same sign up form for landlord and normal user)
 
 User can sign in and get to spaces
 
-Main page for spaces (all spaces shown on one big page for MVP option)
+#Main page for spaces (all spaces shown on one big page for MVP option)
+*As a user
+*So that I can look at all spaces
+*I would like to see a list of spaces
 
 Can add a apace to the page (only if user_type == landlord)
 

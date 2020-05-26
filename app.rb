@@ -1,3 +1,4 @@
+require './lib/spaces'
 require 'sinatra/base'
 
 class BNB < Sinatra::Base
@@ -11,6 +12,11 @@ class BNB < Sinatra::Base
 
   get '/signup' do
     erb :signup
+  end
+
+  get '/spaces' do
+    @spaces = Spaces.all
+    erb :'spaces/index'
   end
 
   run! if app_file == $0
