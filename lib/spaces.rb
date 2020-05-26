@@ -1,3 +1,5 @@
+require 'pg'
+
 class Spaces
 
   def intitialize(name)
@@ -13,12 +15,12 @@ class Spaces
   end
 
   def self.all
-    [
-      "2 bed in Peckham",
-      "10 bed in Hertfordshire",
-      "3 bed penthouse Canary Wharf"
-    ]
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'makers_bnb_test')
+    else
+      connection = PG.connect(dbname: 'makers_bnb')
+    end
+    result = connection.exec("SELECT * FROM spaces;")
+    result.map { |space| space['property_name'] }
   end 
-
-
 end
