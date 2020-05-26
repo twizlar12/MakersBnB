@@ -10,20 +10,24 @@
 7. Until a user has confirmed a booking request, that space can still be booked for that night.
 
 **Nice-to-haves**
+
 8. Users should receive an email whenever one of the following happens:
--- They sign up
--- They create a space
--- They update a space
--- A user requests to book their space
--- They confirm a request
--- They request to book a space
--- Their request to book a space is confirmed
--- Their request to book a space is denied
+
+-- They sign up.
+-- They create a space.
+-- They update a space.
+-- A user requests to book their space.
+-- They confirm a request.
+-- They request to book a space.
+-- Their request to book a space is confirmed.
+-- Their request to book a space is denied.
+
 9. Users should receive a text message to a provided number whenever one of the following happens:
--- A user requests to book their space
--- Their request to book a space is confirmed
--- Their request to book a space is denied
--- A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space
+
+-- A user requests to book their space.
+-- Their request to book a space is confirmed.
+-- Their request to book a space is denied.
+-- A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space.
 -- Basic payment implementation though Stripe.
 
 **User Stories**
