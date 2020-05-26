@@ -19,5 +19,14 @@ class BNB < Sinatra::Base
     erb :'spaces/index'
   end
 
+  post '/spaces' do
+    Spaces.add(property_name: params['property_name'])
+    redirect '/spaces'
+  end
+
+  get '/spaces/new' do
+    erb :"spaces/new"
+  end
+
   run! if app_file == $0
 end

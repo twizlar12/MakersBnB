@@ -6,13 +6,15 @@ feature 'Viewing all spaces' do
     expect(page).to have_content "Spaces"
   end
 
-  scenario 'View all space stored' do
-    connect_and_add_spaces
+  feature "#spaces" do
+    scenario 'View all space stored' do
+      connect_and_add_spaces
 
-    visit('/spaces')
-    
-    expect(page).to have_content "2 bed in Peckham"
-    expect(page).to have_content "10 bed in Hertfordshire"
-    expect(page).to have_content "3 bed penthouse Canary Wharf"
+      visit('/spaces')
+      
+      expect(page).to have_content "2 bed in Peckham"
+      expect(page).to have_content "10 bed in Hertfordshire"
+      expect(page).to have_content "3 bed penthouse Canary Wharf"
+    end
   end
 end

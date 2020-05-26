@@ -18,4 +18,12 @@ describe Spaces do
       expect(spaces).to include('3 bed penthouse Canary Wharf')
     end
   end
+
+  describe '.create' do
+    it 'creates a new space' do
+      Spaces.add(property_name: '1 Bed at Tower of London')
+  
+      expect(Spaces.all).to include '1 Bed at Tower of London'
+    end
+  end
 end
