@@ -11,19 +11,19 @@
 
 **Nice-to-haves**
 8. Users should receive an email whenever one of the following happens:
-9. They sign up
-10. They create a space
-11. They update a space
-12. A user requests to book their space
-13. They confirm a request
-14. They request to book a space
-15. Their request to book a space is confirmed
-16. Their request to book a space is denied
-17. Users should receive a text message to a provided number whenever one of the following happens:
-18. A user requests to book their space
-19. Their request to book a space is confirmed
-20. Their request to book a space is denied
-21. A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space
-22. Basic payment implementation though Stripe.
+-- They sign up
+-- They create a space
+-- They update a space
+-- A user requests to book their space
+-- They confirm a request
+-- They request to book a space
+-- Their request to book a space is confirmed
+-- Their request to book a space is denied
+9. Users should receive a text message to a provided number whenever one of the following happens:
+-- A user requests to book their space
+-- Their request to book a space is confirmed
+-- Their request to book a space is denied
+-- A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space
+-- Basic payment implementation though Stripe.
 
 **User Stories**
