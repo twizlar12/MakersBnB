@@ -3,7 +3,7 @@ feature 'Adding a new space' do
     visit('/spaces/new')
   
     fill_in('property_name', with: '1 Bed at Tower of London')
-    click_button('Submit')
+    click_button('Add')
 
     expect(page).to have_content '1 Bed at Tower of London'
   end
