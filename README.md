@@ -2,7 +2,7 @@
 **Database setup can (sql found in db/migrations)**
 1. Create production database by running 01_create_makers_bnb_database.sql
 2. Create test database by running 02_create_makers_bnb_test_database.sql
-3. Add tables by running 03_add_users_table.sql, 04_add_spaces_table.sql and 05_add_bookings_table.sql
+3. Add tables in both databases by running 03_add_users_table.sql, 04_add_spaces_table.sql and 05_add_bookings_table.sql
 
 **Headline specifications**
 1. Any signed-up user can list a new space.
