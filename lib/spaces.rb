@@ -2,10 +2,6 @@ require 'pg'
 
 class Spaces
 
-  def intitialize(name)
-    @name = name
-  end
-
   def add_booking(date)
     #send date to a database
   end
