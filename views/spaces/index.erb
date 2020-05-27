@@ -1,7 +1,21 @@
-<h1> Spaces </h1>
 
-<ul>
-  <% @spaces.each do |space| %>
-   <li><%= space %></li>
-  <% end %>
-</ul> 
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1 class="text-center">Spaces</h1>
+    <ul>
+      <% @spaces.each do |space| %>
+      <li><%=space%></li>
+      <%end %>
+    </ul> 
+    <div class="text-center">
+      <form method="get" action="/spaces/new">
+        <button type="submit">Add a Space</button>
+      </form>
+      <p class="mt-5 mb-3 text-muted">&copy; App Monsters</p>
+    </div>
+  </body>
+</html>
