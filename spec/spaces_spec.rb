@@ -1,9 +1,9 @@
 require "./lib/spaces.rb"
 require "database_helper.rb"
 
-describe Spaces do  
-  it "should create an instance of itself" do 
-    space = Spaces.new
+describe Spaces do
+  it "should create an instance of itself" do
+    space = Spaces.new(property_name:'generic name')
     expect(space).to be_instance_of Spaces
   end
 
@@ -22,7 +22,7 @@ describe Spaces do
   describe '.create' do
     it 'creates a new space' do
       Spaces.add(property_name: '1 Bed at Tower of London')
-  
+
       expect(Spaces.all).to include '1 Bed at Tower of London'
     end
   end
