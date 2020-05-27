@@ -8,8 +8,16 @@
     <h1 class="text-center">Spaces</h1>
     <ul>
       <% @spaces.each do |space| %>
-      <li><%=space%></li>
-      <%end %>
+      <li>
+        <p> Location: <%= space.location %> </p>
+        <p> Number of Bedrooms: <%= space.bedrooms %> </p>
+          <p> Number of Beds: <%= space.beds %> </p>
+          <% @bookings.each do |booking| %>
+          <%  if booking == space %>
+              <% booking.start_date %>
+            <% end %>
+      </li>
+      <% end %>
     </ul> 
     <div class="text-center">
       <form method="get" action="/spaces/new">

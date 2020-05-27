@@ -11,10 +11,10 @@ feature 'Viewing all spaces' do
       connect_and_add_spaces
 
       visit('/spaces')
-      
-      expect(page).to have_content "2 bed in Peckham"
-      expect(page).to have_content "10 bed in Hertfordshire"
-      expect(page).to have_content "3 bed penthouse Canary Wharf"
+
+      expect(page).to have_content "Peckham"
+      expect(page).to have_content "Hertfordshire"
+      expect(page).to have_content "Canary Wharf"
     end
   end
 end

@@ -23,11 +23,12 @@ class BNB < Sinatra::Base
 
   get '/spaces' do
     @spaces = Spaces.all
+    @bookings = Bookings.all
     erb :'spaces/index'
   end
 
   post '/spaces' do
-    Spaces.add(property_name: params['property_name'])
+    Spaces.add(bedrooms: params[:bedrooms], location: params[:location])
     redirect '/spaces'
   end
 
