@@ -12,15 +12,26 @@ describe Users do
       connection = PG.connect(dbname: 'makers_bnb_test')
 
     # Add the test data
-      connection.exec("INSERT INTO users (name) VALUES ('Phillip');")
-      connection.exec("INSERT INTO users (name) VALUES('Jamie');")
-      connection.exec("INSERT INTO users (name) VALUES('Susan');")
+      # connection.exec("INSERT INTO users (name) VALUES ('Phillip');")
+      # connection.exec("INSERT INTO users (name) VALUES('Jamie');")
+      # connection.exec("INSERT INTO users (name) VALUES('Susan');")
+
+      user = User.signup(name: 'Phillip', password: 'pjohns243')
+      User.signup(name: 'Jamie', password: 'james.ph!')
+      User.signup(name: 'Susan', password: 'pinkhearts65')
 
       users = Users.all
 
-      expect(users).to include('Phillip')
-      expect(users).to include('Jamie')
-      expect(users).to include('Susan')
+      expect(users.first).to be_a Users
+      expect(users.first.name).to eq 'Philip'
+      expect(users.length).to eq 3 
     end
-  end
+  describe '.signup' do
+    it 'adds a user to the database through sign up' do
+      user = Users.signup(name: 'Jeffery', password: 'jkola12')
+      persisted_data = PG.connect(dbname: 'makers_bnb_test').query("SELECT name FROM users WHERE name LIKE 'Jeffery%';")
+      expect(Users.all).to include 'Jeffery'
+    end 
+  end 
 end
+end 

@@ -21,6 +21,11 @@ class BNB < Sinatra::Base
     erb :signup
   end
 
+  post '/signup' do
+    Users.signup(name: params['name'])
+    redirect '/spaces'
+  end
+
   get '/spaces' do
     @spaces = Spaces.all
     erb :'spaces/index'
