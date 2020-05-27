@@ -29,8 +29,8 @@ class Spaces
     else
       connection = PG.connect(dbname: 'makers_bnb')
     end
-      result = connection.exec("INSERT INTO spaces (bedrooms, location) VALUES('#{bedrooms}', '#{location}') RETURNING bedrooms, location;")
-      Spaces.new(bedrooms: result[0]['bedrooms'], location: result[0]['location'])
+      result = connection.exec("INSERT INTO spaces (bedrooms, location, property_name, description, space_type, guests, beds, bathrooms, amenities) VALUES('#{bedrooms}', '#{location}' '#{property_name}', '#{description}', '#{space_type}', '#{guests}', '#{beds}', '#{bathrooms}', '#{amenities}')) RETURNING bedrooms, location, property_name, description, space_type, guests, beds, bathrooms, amenities;")
+      Spaces.new(bedrooms: result[0]['bedrooms'], location: result[0]['location'], property_name: result[0]['property_name'], description: result[0]['description'], beds: result[0]['beds'], bathrooms: result[0]['bathrooms'], amenities: [0]['amenities'])
   end
 
   def initialize(bedrooms:, location:, property_name:, description:, space_type:, guests:, beds:, bathrooms:, amenities:)
