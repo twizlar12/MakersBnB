@@ -1,5 +1,7 @@
+require 'pg'
+
 class Users
-  
+
   attr_reader :name, :password
 
   def initialize(name:, password:)
@@ -14,14 +16,21 @@ class Users
       connection = PG.connect(dbname: 'makers_bnb')
     end
     result = connection.exec("INSERT INTO users (name, password) VALUES('#{name}', '#{password}') RETURNING name, password;")
-    Users.new(name: ['name'], password: ['password'])
+    Users.new(name: result[0]['name'], password: result[0]['password'])
   end
 
-  def signin
-    #verify user is in the database
+  def self.signin(name:, password:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'makers_bnb_test')
+    else
+      connection = PG.connect(dbname: 'makers_bnb')
+    end
+    result = connection.exec("INSERT INTO users (name, password) VALUES('#{name}', '#{password}') RETURNING name, password;")
+    Users.new(name: result[0]['name'], password: result[0]['password'])
   end
 
-  def self. all
+
+  def self.all
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makers_bnb_test')
     else
@@ -29,7 +38,8 @@ class Users
     end
 
     result = connection.exec("SELECT * FROM users")
-    result.map { |user| user['name'] }
-    Users.new(name: ['name'], password: ['password'])
-  end 
+    result.map do |user|
+      Users.new(name: user['name'], password: user['password'])
+    end
+  end
 end

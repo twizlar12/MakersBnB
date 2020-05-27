@@ -7,7 +7,7 @@ feature "signup" do
   end
   scenario "check href link works" do
     visit '/signup'
-    fill_in('inputEmail', with: 'jeffery@hotmail.com')
+    fill_in('name', with: 'Jeffery')
     click_link "Sign in"
 
     expect(page).to have_content "Sign in"
