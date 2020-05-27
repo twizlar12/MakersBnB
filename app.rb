@@ -10,6 +10,13 @@ class BNB < Sinatra::Base
     erb :signin
   end
 
+  post '/signin' do
+    name = params['name']
+    connection = PG.connect(dbname: 'makers_bnb_test')
+    connection.exec("INSERT INTO users (name) VALUES('#{name}')")
+    redirect '/spaces'
+  end
+
   get '/signup' do
     erb :signup
   end
