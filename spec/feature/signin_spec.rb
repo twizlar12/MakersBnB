@@ -9,6 +9,6 @@ feature "signin" do
   scenario "check href link works" do
     visit '/'
     click_link "Sign up"
-    expect(page).to have_content "Please sign up"
+    expect(page).to have_content "Please sign up" 
   end
 end

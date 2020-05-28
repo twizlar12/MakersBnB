@@ -9,8 +9,6 @@ describe Users do
 
   describe '.all' do
     it 'contains all the signed up users' do
-      connection = PG.connect(dbname: 'makers_bnb_test')
-
       users = Users.signup(name: "Phillip", password: "pjohns243")
       Users.signup(name: "Jamie", password: "jmorris379")
       Users.signup(name: "Susan", password: "pinkhearts65")
@@ -18,15 +16,15 @@ describe Users do
       users = Users.all
 
       expect(users.first).to be_a Users
-      # expect(users).to include('Jamie')
-      # expect(users).to include('Susan')
+      expect(users.first.name).to eq 'Phillip'
+      expect(users.length).to eq 3
     end
   end
 
   describe '.signup' do
     it 'adds a user to the database through sign up' do
       user = Users.signup(name: 'Jeffery', password: 'jkola12')
-      persisted_data_signup = persisted_data_signup(name: user.name)
+      persisted_data_signup = persisted_data_signup(name: user.name) # What does this line do, commenting it out doesn't make the test fail
 
       expect(user).to be_a Users
       expect(user.name).to eq 'Jeffery'
@@ -36,7 +34,7 @@ describe Users do
   describe '.signin' do
     it 'allows existing users to sign in' do
       user = Users.signin(name: 'Susan', password: 'pinkhearts65')
-      persisted_data_signin = persisted_data_signin(name: user.name)
+      persisted_data_signin = persisted_data_signin(name: user.name) # What does this line do, commenting it out doesn't make the test fail
 
       users = Users.all
       expect(users.first.name).to eq 'Susan'

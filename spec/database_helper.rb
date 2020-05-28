@@ -1,11 +1,10 @@
 require 'pg'
 
 def connect_and_add_spaces
-  connection = PG.connect(dbname: 'makers_bnb_test')
 
-  connection.exec("INSERT INTO spaces (property_name) VALUES('2 bed in Peckham')")
-  connection.exec("INSERT INTO spaces (property_name) VALUES('10 bed in Hertfordshire')")
-  connection.exec("INSERT INTO spaces (property_name) VALUES('3 bed penthouse Canary Wharf')")
+  Spaces.add(bedrooms: 2, location: 'Peckham')
+  Spaces.add(bedrooms: 10, location: 'Hertfordshire')
+  Spaces.add(bedrooms: 3, location: 'Canary Wharf')
 end
 
 def persisted_data_signup(name:)

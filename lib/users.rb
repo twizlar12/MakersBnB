@@ -25,7 +25,7 @@ class Users
     else
       connection = PG.connect(dbname: 'makers_bnb')
     end
-    result = connection.exec("INSERT INTO users (name, password) VALUES('#{name}', '#{password}') RETURNING name, password;")
+    result = connection.exec("INSERT INTO users (name, password) VALUES('#{name}', '#{password}') RETURNING name, password;") # Signin shouldn't be inserting values into the database?
     Users.new(name: result[0]['name'], password: result[0]['password'])
   end
 

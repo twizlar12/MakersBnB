@@ -3,7 +3,7 @@ require "database_helper.rb"
 
 describe Spaces do
   it "should create an instance of itself" do
-    space = Spaces.new(property_name:'generic name')
+    space = Spaces.new(location:'Birmingham', bedrooms: 5)
     expect(space).to be_instance_of Spaces
   end
 
@@ -13,17 +13,17 @@ describe Spaces do
 
       spaces = Spaces.all
 
-      expect(spaces).to include('2 bed in Peckham')
-      expect(spaces).to include('10 bed in Hertfordshire')
-      expect(spaces).to include('3 bed penthouse Canary Wharf')
+      expect(spaces.length).to eq 3
+      expect(spaces.first.location).to eq('Peckham')
+      expect(spaces.last.location).to eq('Canary Wharf')
     end
   end
 
   describe '.create' do
     it 'creates a new space' do
-      Spaces.add(property_name: '1 Bed at Tower of London')
+      Spaces.add(bedrooms: 4, location: 'York')
 
-      expect(Spaces.all).to include '1 Bed at Tower of London'
+      expect(Spaces.all.first.location).to eq 'York'
     end
   end
 end

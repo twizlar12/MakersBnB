@@ -5,11 +5,12 @@ feature "signup" do
     expect(page).to have_content "Password"
     expect(page).to have_content "Confirm Password"
   end
+
   scenario "check href link works" do
     visit '/signup'
     fill_in('name', with: 'Jeffery')
     click_link "Sign in"
 
-    expect(page).to have_content "Sign in"
+    expect(page).to have_content "Sign in" # Is sign in a button, if so we can use have_button matcher
   end
 end

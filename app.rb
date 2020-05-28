@@ -12,8 +12,8 @@ class BNB < Sinatra::Base
 
   post '/signin' do
     name = params['name']
-    connection = PG.connect(dbname: 'makers_bnb_test')
-    connection.exec("INSERT INTO users (name) VALUES('#{name}')")
+    connection = PG.connect(dbname: 'makers_bnb_test') # We need to move this ruby code into the Model (MVC)
+    connection.exec("INSERT INTO users (name) VALUES('#{name}')") # We need to move this ruby code into the Model (MVC)
     redirect '/spaces'
   end
 
@@ -28,11 +28,12 @@ class BNB < Sinatra::Base
 
   get '/spaces' do
     @spaces = Spaces.all
+    # @bookings = Bookings.all
     erb :'spaces/index'
   end
 
   post '/spaces' do
-    Spaces.add(property_name: params['property_name'])
+    Spaces.add(bedrooms: params[:bedrooms], location: params[:location])
     redirect '/spaces'
   end
 
