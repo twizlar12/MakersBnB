@@ -24,7 +24,6 @@ describe Users do
   describe '.signup' do
     it 'adds a user to the database through sign up' do
       user = Users.signup(name: 'Jeffery', password: 'jkola12')
-      persisted_data_signup = persisted_data_signup(name: user.name) # What does this line do, commenting it out doesn't make the test fail
 
       expect(user).to be_a Users
       expect(user.name).to eq 'Jeffery'
@@ -33,11 +32,11 @@ describe Users do
 
   describe '.signin' do
     it 'allows existing users to sign in' do
+      Users.signup(name: "Susan", password: "pinkhearts65")
       user = Users.signin(name: 'Susan', password: 'pinkhearts65')
-      persisted_data_signin = persisted_data_signin(name: user.name) # What does this line do, commenting it out doesn't make the test fail
 
       users = Users.all
-      expect(users.first.name).to eq 'Susan'
+      expect(users.first.name).to include 'Susan'
     end
   end
 end
