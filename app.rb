@@ -1,4 +1,5 @@
 require './lib/spaces'
+require './lib/users'
 require 'sinatra/base'
 
 class BNB < Sinatra::Base
@@ -11,9 +12,7 @@ class BNB < Sinatra::Base
   end
 
   post '/signin' do
-    name = params['name']
-    connection = PG.connect(dbname: 'makers_bnb_test') # We need to move this ruby code into the Model (MVC)
-    connection.exec("INSERT INTO users (name) VALUES('#{name}')") # We need to move this ruby code into the Model (MVC)
+    Users.signin(name: params[:name], password: params[:password])
     redirect '/spaces'
   end
 
@@ -22,7 +21,7 @@ class BNB < Sinatra::Base
   end
 
   post '/signup' do
-    Users.signup(name: params['name'])
+    Users.signup(name: params[:name], password: params[:password])
     redirect '/spaces'
   end
 
