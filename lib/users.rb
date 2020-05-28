@@ -26,7 +26,7 @@ class Users
     else
       connection = PG.connect(dbname: 'makers_bnb')
     end
-    result = connection.exec("SELECT name, password FROM users WHERE name LIKE '#{name}%' AND password LIKE '#{password}%';")
+    result = connection.exec("SELECT name, password, user_type FROM users WHERE name LIKE '#{name}%' AND password LIKE '#{password}%' AND user_type LIKE '#{user_type}';")
     Users.new(name: result[0]['name'], password: result[0]['password'], user_type: result[0]['user_type'])
   end
 
