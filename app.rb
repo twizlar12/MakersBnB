@@ -12,7 +12,7 @@ class BNB < Sinatra::Base
   end
 
   post '/signin' do
-    Users.signin(name: params[:name], password: params[:password])
+    Users.signin(name: params[:name], password: params[:password], user_type: params[:userType])
     redirect '/spaces'
   end
 
@@ -21,7 +21,7 @@ class BNB < Sinatra::Base
   end
 
   post '/signup' do
-    Users.signup(name: params[:name], password: params[:password])
+    Users.signup(name: params[:name], password: params[:password], user_type: params[:userType])
     redirect '/spaces'
   end
 
