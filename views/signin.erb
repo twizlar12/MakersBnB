@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
   <body class="text-center">
+    <h2><%= flash[:notice] %>
+    </h2>
     <form action="/signin" method="post">
       <h1 class="font-weight-bold">App Monsters BNB</h1>
       <h4>Please sign in</h4>

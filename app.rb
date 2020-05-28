@@ -1,8 +1,12 @@
 require './lib/spaces'
 require './lib/users'
 require 'sinatra/base'
+require 'sinatra/flash'
 
 class BNB < Sinatra::Base
+  register Sinatra::Flash
+
+
   get '/' do
     redirect '/signin'
   end
@@ -12,8 +16,18 @@ class BNB < Sinatra::Base
   end
 
   post '/signin' do
-    Users.signin(name: params[:name], password: params[:password], user_type: params[:userType])
-    redirect '/spaces'
+    result = Users.signin(name: params[:name], password: params[:password], user_type: params[:userType])
+
+    if result
+      redirect '/spaces'
+    else
+      flash[:notice] = "You must select the correct user type."
+    redirect '/error_page'
+  end
+end
+
+  get '/error_page' do
+    erb :error_page
   end
 
   get '/signup' do
