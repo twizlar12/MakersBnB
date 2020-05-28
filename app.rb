@@ -1,4 +1,5 @@
 require './lib/spaces'
+require './lib/bookings'
 require 'sinatra/base'
 
 class BNB < Sinatra::Base
@@ -28,7 +29,7 @@ class BNB < Sinatra::Base
 
   get '/spaces' do
     @spaces = Spaces.all
-    # @bookings = Bookings.all
+    @bookings = Bookings.all
     erb :'spaces/index'
   end
 

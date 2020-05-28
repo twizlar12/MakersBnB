@@ -12,6 +12,9 @@
         <p> Location: <%= space.location %> </p>
         <p> Number of Bedrooms: <%= space.bedrooms %> </p>
         <p> Dates unavailable: </p>
+        <% @bookings.each do |booking| %>
+        <p> <%= booking.start_date %> </p>
+        <% end %>
       </li>
       <% end %>
     </ul> 

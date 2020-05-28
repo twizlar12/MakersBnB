@@ -18,7 +18,7 @@ attr_reader :start_date, :end_date, :property_name
     Bookings.new(property_name: result[0]['property_name'], start_date: result[0]['start_date'], end_date: result[0]['end_date'])
   end
 
-  def self.all(property_name:, start_date:, end_date:)
+  def self.all
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makers_bnb_test')
     else

@@ -1,5 +1,4 @@
 require "./lib/bookings.rb"
-require 'date'
 
 describe Bookings do
   it 'can list dates a place is booked' do
@@ -10,7 +9,7 @@ describe Bookings do
   it 'can make a booking' do
     booking = Bookings.add(property_name: "Holiday home", start_date: '2010-01-01', end_date: '2010-01-02')
     
-    expect(Bookings.all.first).to eq '2010-01-01'
-    expect(Bookings.all.last).to eq '2010-01-02'
+    expect(Bookings.all.first.start_date).to eq '2010-01-01'
+    expect(Bookings.all.first.end_date).to eq '2010-01-02'
   end
 end
