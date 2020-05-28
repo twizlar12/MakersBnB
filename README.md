@@ -1,3 +1,4 @@
+# Kate, Ade, CJ and Kabir
 # MakersBnB
 **Database setup can (sql found in db/migrations)**
 1. Create production database by running 01_create_makers_bnb_database.sql
