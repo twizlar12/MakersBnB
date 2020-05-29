@@ -65,4 +65,4 @@ Can add a apace to the page (only if user_type == landlord)
 
 Check space availability by checking if there is a booking for the room on that date in database. (MVP monday/ tuesday etc), show on it's own view page what days the soace is booked.
 
-New form for user to book soaces, this records on the database that space is taken.
+New form for user to book spaces, this records on the database that space is taken.
