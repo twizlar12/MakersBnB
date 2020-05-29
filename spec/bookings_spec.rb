@@ -2,7 +2,7 @@
  require "./lib/spaces.rb"
 
 describe Bookings do
-  it 'can list dates a place is booked' do
+  it 'can is a class of Bookings' do
     booking = Bookings.new(property_name: "Holiday home", start_date: '2010-01-01', end_date: '2010-01-02')
     expect(booking).to be_instance_of Bookings
   end

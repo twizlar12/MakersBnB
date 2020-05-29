@@ -13,7 +13,7 @@ class BNB < Sinatra::Base
   end
 
   get '/signin' do
-    erb :signin
+    erb :'signin'
   end
 
   post '/signin' do
@@ -23,16 +23,16 @@ class BNB < Sinatra::Base
       redirect '/spaces'
     else
       flash[:notice] = "You must select the correct user type."
-    redirect '/error_page'
+      redirect '/error_page'
   end
 end
 
   get '/error_page' do
-    erb :error_page
+    erb :'error_page'
   end
 
   get '/signup' do
-    erb :signup
+    erb :'signup'
   end
 
   post '/signup' do
@@ -52,16 +52,21 @@ end
   end
 
   get '/spaces/new' do
-    erb :"spaces/new"
+    erb :'spaces/new'
   end
 
   get '/spaces/bookings' do
-    erb :"spaces/bookings"
+    erb :'spaces/bookings'
   end
 
   post '/spaces/bookings' do
-    Bookings.add(property_name: params[:property_name], start_date: params[:start_date], end_date: params[:end_date])
-    redirect '/spaces'
+    booking = Bookings.add(property_name: params[:property_name], start_date: params[:start_date], end_date: params[:end_date])
+    
+    if booking
+      redirect '/spaces'
+    else
+      erb :'bookings_error_page'
+    end
   end
 
   run! if app_file == $0
