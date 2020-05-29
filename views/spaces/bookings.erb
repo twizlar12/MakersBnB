@@ -4,17 +4,17 @@
   </head>
 
   <body class="text-center">
-    <form action="/spaces" method="post">
-      <h1 class="h3 mb-3 font-weight-bold"> Add a new Space </h1>
+    <form action="/spaces/bookings" method="post">
+      <h1 class="h3 mb-3 font-weight-bold"> Make a new booking </h1>
       <label for="property_name" class="sr-only">Property Name</label>
       <input type="text" name="property_name" class="form-control" placeholder="Add property name here" required autofocus>
-      <label for="bedrooms" class="sr-only">Bedrooms</label>
-      <input type="text" name="bedrooms" class="form-control" placeholder="Add numbers of bedrooms here" required autofocus>
-      <label for="location" class="sr-only">Location</label>
-      <input type="text" name="location" class="form-control" placeholder="Add location here" required autofocus>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Add</button>
-      <img src="https://bit.ly/3dcbj2p" alt="App Monsters" style="width:90px;height:60px;">
+      <label for="start_date" class="sr-only">Start Date</label>
+      <input type="date" name="start_date" class="form-control" placeholder="Add start date here" required autofocus>
+      <label for="end_date" class="sr-only">End Date</label>
+      <input type="date" name="end_date" class="form-control" placeholder="Add end date here" required autofocus>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Make Booking</button>
       <br>
+      <img src="https://bit.ly/3dcbj2p" alt="App Monsters" style="width:90px;height:60px;">
       <p class="mt-5 mb-3 text-muted">&copy; App Monsters</p>
     </form>
 
