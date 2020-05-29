@@ -9,9 +9,13 @@
     <ul>
       <% @spaces.each do |space| %>
       <li>
+        <p> <%= space.property_name %> </p>
         <p> Location: <%= space.location %> </p>
         <p> Number of Bedrooms: <%= space.bedrooms %> </p>
         <p> Dates unavailable: </p>
+        <% @bookings.each do |booking| %>
+        <p> <%= booking.start_date %> </p>
+        <% end %>
       </li>
       <% end %>
     </ul> 
@@ -19,6 +23,11 @@
       <form method="get" action="/spaces/new">
         <button type="submit">Add a Space</button>
       </form>
+      <form method="get" action="/spaces/bookings">
+        <button type="submit">Make a Booking</button>
+      </form>
+      <br>
+      <img src="https://bit.ly/3dcbj2p" alt="App Monsters" style="width:90px;height:60px;">
       <p class="mt-5 mb-3 text-muted">&copy; App Monsters</p>
     </div>
   </body>

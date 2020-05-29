@@ -1,5 +1,5 @@
 require './lib/spaces'
-require './lib/users'
+require './lib/bookings'
 require 'sinatra/base'
 require 'sinatra/flash'
 
@@ -41,17 +41,26 @@ end
 
   get '/spaces' do
     @spaces = Spaces.all
-    # @bookings = Bookings.all
+    @bookings = Bookings.all
     erb :'spaces/index'
   end
 
   post '/spaces' do
-    Spaces.add(bedrooms: params[:bedrooms], location: params[:location])
+    Spaces.add(property_name: params[:property_name], bedrooms: params[:bedrooms], location: params[:location])
     redirect '/spaces'
   end
 
   get '/spaces/new' do
     erb :"spaces/new"
+  end
+
+  get '/spaces/bookings' do
+    erb :"spaces/bookings"
+  end
+
+  post '/spaces/bookings' do
+    Bookings.add(property_name: params[:property_name], start_date: params[:start_date], end_date: params[:end_date])
+    redirect '/spaces'
   end
 
   run! if app_file == $0
