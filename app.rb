@@ -1,5 +1,6 @@
 require './lib/spaces'
 require './lib/bookings'
+require './lib/users'
 require 'sinatra/base'
 require 'sinatra/flash'
 
@@ -16,7 +17,7 @@ class BNB < Sinatra::Base
   end
 
   post '/signin' do
-    result = Users.signin(name: params[:name], password: params[:password], user_type: params[:userType])
+    result = Users.signin(name: (params[:name]).capitalize, password: params[:password], user_type: params[:userType])
 
     if result
       redirect '/spaces'
@@ -35,7 +36,7 @@ end
   end
 
   post '/signup' do
-    Users.signup(name: params[:name], password: params[:password], user_type: params[:userType])
+    Users.signup(name: (params[:name]).capitalize, password: params[:password], user_type: params[:userType])
     redirect '/spaces'
   end
 
