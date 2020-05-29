@@ -23,6 +23,29 @@ feature "signin" do
     fill_in('inputPassword', with: 'password')
     select("Guest", from: "userType").select_option
     click_button "Sign in"
-    expect(page).not_to have_content "Spaces"
+    expect(page).to have_content "Your user information is incorrect!"
+  end
+
+  scenario "guest user can't sign in as a landlord" do
+    visit '/signup'
+    fill_in('name', with:'Bob')
+    fill_in('inputPassword', with:'password')
+    select("Guest", from: "userType").select_option
+    click_button "Create your account"
+    visit '/'
+    fill_in('name', with:'Bob')
+    fill_in('inputPassword', with:'password')
+    select("Landlord", from: "userType").select_option
+    click_button "Sign in"
+    expect(page).to have_content "Your user information is incorrect!"
+  end
+
+  scenario "Signing in with a name that doesn't exist in the database" do
+    visit '/'
+    fill_in('name', with:'RandomName')
+    fill_in('inputPassword', with:'Randompass')
+    select("Guest", from: "userType").select_option
+    click_button "Sign in"
+    expect(page).to have_content "Your user information is incorrect!"
   end
 end
